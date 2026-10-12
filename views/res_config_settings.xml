@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="res_config_settings_view_form_maya_moodle" model="ir.ui.view">
+    <field name="name">res.config.settings.view.form.inherit.maya_moodle</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//form" position="inside">
+        <app string="Maya | Moodle" name="maya_moodle" groups="base.group_system">
+          <block title="Gateway de Moodle" name="maya_moodle_gateway">
+            <setting string="URL del gateway"
+                      help="Dirección del servicio que centraliza las peticiones a Moodle. La clave de acceso se configura con la variable de entorno MAYA_GATEWAY_API_KEY.">
+              <field name="maya_moodle_gateway_url" placeholder="http://moodle-gateway:8080"/>
+            </setting>
+          </block>
+        </app>
+      </xpath>
+    </field>
+  </record>
+</odoo>
