@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="res_users_view_form_inherit_moodle" model="ir.ui.view">
+    <field name="name">res.users.form.inherit.moodle</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//notebook" position="inside">
+        <page string="Moodle" name="moodle">
+          <group>
+            <group name="moodle_fields">
+              <field name="moodle_username"/>
+              <field name="moodle_has_token"/>
+            </group>
+            <group name="moodle_system_fields" groups="base.group_system">
+              <field name="moodle_token_date"/>
+              <field name="moodle_token_enc"/>
+            </group>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>

@@ -22,6 +22,7 @@
     # always loaded
     'data': [
         'views/res_config_settings.xml',   
+        'views/res_user.xml',   
     ],
     'installable': True,
     'application': False,
