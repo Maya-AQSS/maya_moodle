@@ -37,7 +37,7 @@ class MoodleTokenController(http.Controller):
   @http.route("/maya/moodle/token", type="http", auth="user", methods=["GET", "POST"], csrf=True)
   def moodle_token(self, password=None, **kw):
     user = request.env.user
-    gateway = request.env["maya.moodlink"]
+    gateway = request.env["maya_moodle.moodlink"]
 
     if request.httprequest.method == "POST":
         try:

@@ -31,6 +31,7 @@
         'views/views.xml',
         'data/maya_moodle.classroom.csv',
         'data/maya_moodle.subject_classroom_rel.csv',
+        'data/maya_moodle.task_moodle.csv',
     ],
     'installable': True,
     'application': False,

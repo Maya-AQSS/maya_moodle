@@ -1,0 +1,11 @@
+id,moodle_id,key,classroom_id:id,description,study_abbr
+task_moodle_2088_validation,359859,validation,classroom_2088,Solicitud de convalidaciones,DAW
+task_moodle_2088_validation_claim,359862,validation_claim,classroom_2088,Reclamación de convalidaciones,DAW
+task_moodle_2094_validation,359896,validation,classroom_2094,Solicitud de convalidaciones,DAM
+task_moodle_2094_validation_claim,359900,validation_claim,classroom_2094,Reclamación de convalidaciones,DAM
+task_moodle_3023_validation,359102,validation,classroom_3023,Solicitud de convalidaciones,ASIR
+task_moodle_3023_validation_claim,359105,validation_claim,classroom_3023,Reclamación de convalidaciones,ASIR
+task_moodle_2633_competence,359007,competence,classroom_2633,Solicitud de convalidaciones,ADIR
+task_moodle_2633_competence_claim,359010,competence_claim,classroom_2633,Reclamación de convalidaciones,ADIR
+task_moodle_2084_competence,358973,competence,classroom_2084,Solicitud de convalidaciones,AFI
+task_moodle_2084_competence_claim,358976,competence_claim,classroom_2084,Reclamación de convalidaciones,AFI
