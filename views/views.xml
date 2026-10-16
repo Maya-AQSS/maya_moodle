@@ -1,0 +1,72 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="maya_moodle.classroom_tree">
+      <field name="name">Lista de Aulas virtuales</field>
+      <field name="model">maya_moodle.classroom</field>
+      <field name="arch" type="xml">
+        <list limit="25">
+          <field name="short_name"/>
+          <field name="description"/>
+          <field name="subjects_ids" string="Asignatura (Estudio)" widget="many2many_tags"/>
+          <field name="lang_id"/>
+        </list>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="maya_moodle.classroom_search">
+      <field name="name">Búsqueda de Aulas virtuales</field>
+      <field name="model">maya_moodle.classroom</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="short_name"/>
+          <field name="description"/>
+          <group>
+            <filter name="group_by_study" string="Estudio" context="{'group_by': 'related_study_ids'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="maya_moodle.task_moodle_search">
+      <field name="name">Búsqueda de Tareas de Moodle</field>
+      <field name="model">maya_moodle.task_moodle</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="key"/>
+          <field name="description"/>
+          <group>
+            <filter name="group_by_study" string="Estudio" context="{'group_by': 'study_abbr'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="maya_moodle.action_classroom">
+      <field name="name">Aulas virtuales</field>
+      <field name="res_model">maya_moodle.classroom</field>
+      <field name="view_mode">list,form</field>
+      <field name="context">{
+        'search_default_group_by_study': 1
+      }
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="maya_moodle.action_moodle_task">
+      <field name="name">Tareas de Moodle</field>
+      <field name="res_model">maya_moodle.task_moodle</field>
+      <field name="view_mode">list,form</field>
+      <field name="context">{
+        'search_default_group_by_study': 1
+      }
+      </field>
+    </record>
+
+    <!-- menú Moodle -->
+    <menuitem name="Moodle" id="maya_moodle.moodle_menu" parent="maya_core.menu_root" sequence="3"/>
+    <menuitem name="Aulas virtuales" id="maya_moodle.moodle_classroom" parent="maya_moodle.moodle_menu"
+              action="maya_moodle.action_classroom" sequence="1"/>
+    <menuitem name="Tareas" id="maya_moodle.moodle_task" parent="maya_moodle.moodle_menu"
+              action="maya_moodle.action_moodle_task" sequence="2"/>
+  </data>
+</odoo>

@@ -19,10 +19,18 @@
     # any module necessary for this one to work correctly
     'depends': ['base', 'maya_core'],
 
+    'external_dependencies': {
+       'python': ['toolz'],
+    },
+
     # always loaded
     'data': [
-        'views/res_config_settings.xml',   
-        'views/res_user.xml',   
+        'security/ir.model.access.csv',
+        'views/res_config_settings.xml',
+        'views/res_user.xml',
+        'views/views.xml',
+        'data/maya_moodle.classroom.csv',
+        'data/maya_moodle.subject_classroom_rel.csv',
     ],
     'installable': True,
     'application': False,

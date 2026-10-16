@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_classroom_user,Acceso usuario general a las aulas virtuales,model_maya_moodle_classroom,base.group_user,1,1,1,1
+access_subject_classroom_rel_user,Acceso usuario general a la relación módulo-aula,model_maya_moodle_subject_classroom_rel,base.group_user,1,1,1,1
+access_task_moodle_user,Acceso usuario general a las tareas de Moodle,model_maya_moodle_task_moodle,base.group_user,1,1,1,1
