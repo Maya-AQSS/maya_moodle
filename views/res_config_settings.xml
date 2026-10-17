@@ -12,6 +12,10 @@
                       help="Dirección del servicio que centraliza las peticiones a Moodle. La clave de acceso se configura con la variable de entorno MAYA_GATEWAY_API_KEY.">
               <field name="maya_moodle_gateway_url" placeholder="http://moodle-gateway:8080"/>
             </setting>
+            <setting string="Usuario de servicio"
+                      help="Usuario técnico con el que Maya trabaja en Moodle en los procesos automáticos (por ejemplo, la descarga de convalidaciones). Tiene que estar configurado como cuenta de servicio en el gateway.">
+              <field name="maya_moodle_service_user_id" options="{'no_create': True}"/>
+            </setting>
           </block>
         </app>
       </xpath>

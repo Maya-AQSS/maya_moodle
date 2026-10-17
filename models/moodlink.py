@@ -58,6 +58,29 @@ class MayaMoodleGateway(models.AbstractModel):
     params = {"include_teachers": "true"} if include_teachers else None
     return self._request("GET", "/v1/courses/%d/students" % int(course_id), user=user, params=params)
 
+  def get_submissions(self, assignment_id, status=None, user=None):
+    """
+    Última entrega de cada alumno en una tarea de Moodle, con sus datos de usuario y ficheros.
+
+    Devuelve {"assignment_id", "count", "submissions": [{"id", "user": {"id", "username",
+    "firstname", "lastname", "email"}, "attempt_number" (el primero es 0), "status",
+    "grading_status", "time_created", "time_modified", "files": [...]}]}
+    """
+    params = {"status": status} if status else None
+    return self._request("GET", "/v1/assignments/%d/submissions" % int(assignment_id), user=user, params=params)
+
+  def service_user(self):
+    """
+    Usuario técnico con el que Maya opera en Moodle sin intervención de un profesor (crons,
+    integraciones). Debe ser una cuenta de servicio del gateway (SERVICE_CREDENTIALS_FILE)
+    y tener configurado su moodle_username.
+    """
+    user_id = self.env["ir.config_parameter"].sudo().get_param("maya_moodle.service_user_id")
+    user = self.env["res.users"].sudo().browse(int(user_id)) if user_id else self.env["res.users"]
+    if not user.exists():
+      raise UserError(_("No se ha configurado el usuario de servicio de Moodle (Ajustes > Maya | Moodle)."))
+    return user
+
   def request_token(self, user, password):
     """
     Solicita un token a Moodle con la contraseña del usuario y lo guarda con el ORM.
